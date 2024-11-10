@@ -54,6 +54,8 @@ namespace BetterDecaps
                 creature.ragdoll.GetPart(RagdollPart.Type.RightHand).data.sliceForceKill = false;
                 creature.ragdoll.GetPart(RagdollPart.Type.LeftFoot).data.sliceForceKill = false;
                 creature.ragdoll.GetPart(RagdollPart.Type.RightFoot).data.sliceForceKill = false;
+                creature.ragdoll.GetPart(RagdollPart.Type.RightLeg).data.sliceForceKill = false;
+                creature.ragdoll.GetPart(RagdollPart.Type.LeftLeg).data.sliceForceKill = false;
             }
             else
             {
@@ -63,6 +65,8 @@ namespace BetterDecaps
                 creature.ragdoll.GetPart(RagdollPart.Type.RightHand).data.sliceForceKill = true;
                 creature.ragdoll.GetPart(RagdollPart.Type.LeftFoot).data.sliceForceKill = true;
                 creature.ragdoll.GetPart(RagdollPart.Type.RightFoot).data.sliceForceKill = true;
+                creature.ragdoll.GetPart(RagdollPart.Type.RightLeg).data.sliceForceKill = true;
+                creature.ragdoll.GetPart(RagdollPart.Type.LeftLeg).data.sliceForceKill = true;
             }
         }
     }
