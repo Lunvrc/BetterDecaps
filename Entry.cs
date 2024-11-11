@@ -14,6 +14,9 @@ namespace BetterDecaps
         [ModOption("Nonfatal Dismemberments", "Makes hand, arm and foot dismemberments nonfatal", defaultValueIndex = 1)]
         public static bool EnableNonfatalDismemberment = true;
 
+        [ModOption("Allow leg dismemberments", "Lets you cut off the legs of enemies without killing them instantly. Only use this if you don't care about floating enemies.", defaultValueIndex = 1)]
+        public static bool EnableLegCut = true;
+
         public override void ScriptLoaded(ModManager.ModData modData)
         {
             base.ScriptLoaded(modData);
@@ -54,8 +57,6 @@ namespace BetterDecaps
                 creature.ragdoll.GetPart(RagdollPart.Type.RightHand).data.sliceForceKill = false;
                 creature.ragdoll.GetPart(RagdollPart.Type.LeftFoot).data.sliceForceKill = false;
                 creature.ragdoll.GetPart(RagdollPart.Type.RightFoot).data.sliceForceKill = false;
-                creature.ragdoll.GetPart(RagdollPart.Type.RightLeg).data.sliceForceKill = false;
-                creature.ragdoll.GetPart(RagdollPart.Type.LeftLeg).data.sliceForceKill = false;
             }
             else
             {
@@ -65,6 +66,16 @@ namespace BetterDecaps
                 creature.ragdoll.GetPart(RagdollPart.Type.RightHand).data.sliceForceKill = true;
                 creature.ragdoll.GetPart(RagdollPart.Type.LeftFoot).data.sliceForceKill = true;
                 creature.ragdoll.GetPart(RagdollPart.Type.RightFoot).data.sliceForceKill = true;
+            }
+
+            //Nonfatal leg dismemberment
+            if (EnableLegCut)
+            {
+                creature.ragdoll.GetPart(RagdollPart.Type.RightLeg).data.sliceForceKill = false;
+                creature.ragdoll.GetPart(RagdollPart.Type.LeftLeg).data.sliceForceKill = false;
+            }
+            else
+            {
                 creature.ragdoll.GetPart(RagdollPart.Type.RightLeg).data.sliceForceKill = true;
                 creature.ragdoll.GetPart(RagdollPart.Type.LeftLeg).data.sliceForceKill = true;
             }
